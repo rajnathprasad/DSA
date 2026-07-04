@@ -46,7 +46,7 @@ void print(Node* head){
 }
 
 int main(){
-    vector<int> arr={};
+    vector<int> arr={54,84,65,88,56,65};
     Node* head = convertArr2DLL(arr);
 
     cout<<"Before Deletion\n";
