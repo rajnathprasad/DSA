@@ -29,7 +29,7 @@ class Stack{
         int peek(){
             if(top==-1){
                 cout<<"Stack is empty";
-                return;
+                return -1;
             }
             return arr[top];
         }
@@ -43,7 +43,7 @@ class Stack{
             return top+1;
         }
         void display(){
-            for(int i=top;i>=top;i--){
+            for(int i=top;i>=0;i--){
                 cout<<arr[i]<<" ";
             }
             cout<<endl;
