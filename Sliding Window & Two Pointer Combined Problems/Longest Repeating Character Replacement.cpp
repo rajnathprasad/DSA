@@ -10,12 +10,9 @@ public:
         while(r<n){
             mpp[s[r]-'A']++;
             maxF=max(maxF,mpp[s[r]-'A']);
-            while((r-l+1)-maxF>k){
+            if((r-l+1)-maxF>k){
                 mpp[s[l]-'A']--;
                 maxF=0;
-                for(int i=0;i<26;i++){
-                    maxF=max(maxF,mpp[i]);
-                }
                 l++;
             }
             maxLen=max(maxLen,r-l+1);
