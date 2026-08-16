@@ -1,23 +1,21 @@
 class Solution {
 public:
+    static bool intervalComp(vector<int> i1, vector<int> i2){
+        return i1[1]<i2[1];
+    }
     int eraseOverlapIntervals(vector<vector<int>>& intervals) {
-        if(intervals.empty()){
-            return 0;
-        }
-        sort(intervals.begin(),intervals.end());
-        int count=0;
-        int prevEnd = intervals[0][1];
-        for(int i=1;i<intervals.size();i++){
-            if (intervals[i][0] < prevEnd) {
-                count++;
-                prevEnd = min(prevEnd, intervals[i][1]);
-            } else {
-                prevEnd = intervals[i][1];
+        int n=intervals.size();
+        sort(intervals.begin(),intervals.end(),intervalComp);
+        int lastInterval=intervals[0][1];
+        int erased = 0;
+        for(int i=1;i<n;i++){
+            if(intervals[i][0]<lastInterval){
+                erased++;
+            }
+            else{
+                lastInterval=intervals[i][1];
             }
         }
-        return count;
+        return erased;
     }
 };
-
-Time Complexity: O(n log n)
-Space Complexity: O(1)
